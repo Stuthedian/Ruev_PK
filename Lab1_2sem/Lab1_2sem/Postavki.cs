@@ -8,8 +8,8 @@ namespace Lab1_2sem
 {
     class Postavki
     {
-        int postavshik;
-        double? objem;
-        DateTime? date;
+        public int postavshik;
+        public double? objem;
+        public DateTime? date;
     }
 }
