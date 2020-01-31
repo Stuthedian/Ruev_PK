@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lab1_2sem
 {
-    class Sostav
+    public class Sostav
     {
         public int bludo;
-        public int? ves;
+        public double? ves;
     }
 }

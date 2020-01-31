@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab1_2sem
 {
-    class Postavki
+    public class Postavki
     {
         public int postavshik;
         public double? objem;

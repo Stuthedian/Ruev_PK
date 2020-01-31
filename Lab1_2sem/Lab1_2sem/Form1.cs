@@ -13,9 +13,9 @@ namespace Lab1_2sem
 {
     public partial class Form1 : Form
     {
-        static List<Produkt> produkts = new List<Produkt>();
-        static List<Postavshik> postavshiks = new List<Postavshik>();
-        static List<Bludo> bludos = new List<Bludo>();
+        public static List<Produkt> produkts = new List<Produkt>();
+        public static List<Postavshik> postavshiks = new List<Postavshik>();
+        public static List<Bludo> bludos = new List<Bludo>();
         public Form1()
         {
             InitializeComponent();
@@ -122,6 +122,11 @@ namespace Lab1_2sem
                 dataGridView3.DataSource = produkts[dataGridView1.SelectedRows[0].Index].postavki.Join(postavshiks, p => p.postavshik, pst => pst.cod,
                     (p, pst) => new { pst.name, pst.gorod }).ToArray();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Form2().ShowDialog();
         }
     }
 }

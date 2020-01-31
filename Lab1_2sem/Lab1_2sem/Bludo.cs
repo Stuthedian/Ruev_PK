@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab1_2sem
 {
-    class Bludo
+    public class Bludo
     {
         public int cod;
         public string name;

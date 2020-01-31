@@ -7,3 +7,4 @@ D:\410\Lab1_2sem\Lab1_2sem\bin\Debug\Lab1_2sem.exe
 D:\410\Lab1_2sem\Lab1_2sem\bin\Debug\Lab1_2sem.pdb
 D:\410\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.exe
 D:\410\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.pdb
+D:\410\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.Form2.resources

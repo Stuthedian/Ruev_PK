@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab1_2sem
 {
-    class Produkt
+    public class Produkt
     {
         public string name;
         public double? objem;
@@ -14,5 +14,15 @@ namespace Lab1_2sem
 
         public List<Sostav> sostav;
         public List<Postavki> postavki;
+
+        public int kol(int codp)
+        { return sostav.Where(n => n.bludo == codp).Count(); }
+
+        public int kolnull(int codp)
+        { return sostav.Where(n => n.bludo == codp && n.ves == null).Count(); }
+
+        public double? vol(int codp)
+        { return sostav.Where(n => n.bludo == codp).Sum(n => n.ves); } 
+        
     }
 }
