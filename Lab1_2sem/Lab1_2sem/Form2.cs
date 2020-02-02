@@ -18,14 +18,15 @@ namespace Lab1_2sem
         {
             InitializeComponent();
         }
-        
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
             dataGridView1.Columns.Add(" ", " ");
             string dd;
             int kol_col = Form1.produkts.Count;
-            foreach (Produkt p in Form1.produkts){
+            foreach (Produkt p in Form1.produkts)
+            {
                 dataGridView1.Columns.Add(p.name, p.name);
                 kol_col++;
             }
@@ -41,24 +42,27 @@ namespace Lab1_2sem
                 dataGridView1.Rows[i].Cells[0].Value = Form1.bludos[i].name;
                 int kolp = 0; double sp = 0; // Итоги в строке
                 for (int j = 1; j < kol_col; j++)
-                { 
+                {
                     kolnull = Form1.produkts[i].kolnull(int.Parse(dataGridView1.Columns[j].Name));
                     kol = Form1.produkts[i].kol(int.Parse(dataGridView1.Columns[j].Name));
                     // методы: кол-во поставок и объем 
-                    v =  Form1.produkts[i].vol(int.Parse(dataGridView1.Columns[j].Name)); 
+                    v = Form1.produkts[i].vol(int.Parse(dataGridView1.Columns[j].Name));
                     if (kol > 0)
                     {
-                        if (v.HasValue) 
-                        { 
-                            sst[j] += v.Value; sp += v.Value; 
-                        }                     
-                        kol_it[j] += kol; kolp += kol; 
-                        dd = "Поставлено(кг)=" + v.ToString() + "\n количество поставок \n без объема=" + kol.ToString();}
-                        else 
-                            dd = ""; // kol=0
-                        dataGridView1.Rows[i].Cells[j].Value = dd;
-
+                        if (v.HasValue)
+                        {
+                            sst[j] += v.Value; sp += v.Value;
+                        }
+                        kol_it[j] += kol; kolp += kol;
+                        dd = "Поставлено(кг)=" + v.ToString() + "\n количество поставок \n без объема=" + kol.ToString();
+                    }
+                    else
+                        dd = ""; // kol=0
+                    dataGridView1.Rows[i].Cells[j].Value = dd;
                 }
+
+            }
+        }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {

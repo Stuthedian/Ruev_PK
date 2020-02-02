@@ -12,13 +12,13 @@ namespace Lab1_2sem
         public string name;
         public string gorod;
 
-        public int kol(int codp)
-        { return Sppos.Where(n => n.Codp == codp).Count(); }
+        //public int kol(int codp)
+        //{ return Sppos.Where(n => n.Codp == codp).Count(); }
 
-        public int kolnull(int codp)
-        { return Sppos.Where(n => n.Codp == codp && n.Vol == null).Count(); }
+        //public int kolnull(int codp)
+        //{ return Sppos.Where(n => n.Codp == codp && n.Vol == null).Count(); }
 
-        public decimal vol(int codp)
-        { return Sppos.Where(n => n.Codp == codp).Sum(n => n.Vol); } 
+        //public decimal vol(int codp)
+        //{ return Sppos.Where(n => n.Codp == codp).Sum(n => n.Vol); } 
     }
 }
