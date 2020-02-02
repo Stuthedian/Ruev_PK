@@ -23,6 +23,14 @@ namespace Lab1_2sem
 
         public double? vol(int codp)
         { return sostav.Where(n => n.bludo == codp).Sum(n => n.ves); } 
-        
+
+        public double? objem_post(int postavshik)
+        { return postavki.Where(p => p.postavshik == postavshik).Sum(p => p.objem); }
+
+        public double? objem_post(DateTime from, DateTime to)
+        { return postavki.Where(p => p.date >= from && p.date <= to).Sum(p => p.objem); }
+
+        public double? max_post(DateTime from, DateTime to)
+        { return postavki.Where(p => p.date >= from && p.date <= to).Max(p => p.objem); }
     }
 }
