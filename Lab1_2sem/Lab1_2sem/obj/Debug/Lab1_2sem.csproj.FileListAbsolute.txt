@@ -20,3 +20,15 @@ D:\Users\dnevalniy\Documents\Универ410\2 семестр\Руев\Ruev_PK\L
 D:\Users\dnevalniy\Documents\Универ410\2 семестр\Руев\Ruev_PK\Lab1_2sem\Lab1_2sem\bin\Debug\Lab1_2sem.exe
 D:\Users\dnevalniy\Documents\Универ410\2 семестр\Руев\Ruev_PK\Lab1_2sem\Lab1_2sem\bin\Debug\Lab1_2sem.pdb
 D:\Users\dnevalniy\Documents\Универ410\2 семестр\Руев\Ruev_PK\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.Form3.resources
+C:\Users\glebp\Desktop\Ruev_PK-master\Lab1_2sem\Lab1_2sem\bin\Debug\Lab1_2sem.exe.config
+C:\Users\glebp\Desktop\Ruev_PK-master\Lab1_2sem\Lab1_2sem\bin\Debug\Lab1_2sem.exe
+C:\Users\glebp\Desktop\Ruev_PK-master\Lab1_2sem\Lab1_2sem\bin\Debug\Lab1_2sem.pdb
+C:\Users\glebp\Desktop\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.csprojAssemblyReference.cache
+C:\Users\glebp\Desktop\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.Form3.resources
+C:\Users\glebp\Desktop\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.Form2.resources
+C:\Users\glebp\Desktop\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.Form1.resources
+C:\Users\glebp\Desktop\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.Properties.Resources.resources
+C:\Users\glebp\Desktop\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.csproj.GenerateResource.cache
+C:\Users\glebp\Desktop\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.csproj.CoreCompileInputs.cache
+C:\Users\glebp\Desktop\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.exe
+C:\Users\glebp\Desktop\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.pdb

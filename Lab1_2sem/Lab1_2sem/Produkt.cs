@@ -15,14 +15,21 @@ namespace Lab1_2sem
         public List<Sostav> sostav;
         public List<Postavki> postavki;
 
-        public int kol(int codp)
-        { return sostav.Where(n => n.bludo == codp).Count(); }
+        public int kol(int cod)
+        {
+            double aa;
+            double? a = postavki.Select(n => n.objem).Sum() / sostav.Where(n => n.bludo == cod).Select(nn => nn.ves).First();
+            if (a.HasValue)
+                aa = a.Value;
+            else aa = 0;
+            return Convert.ToInt32(Math.Floor(aa));//sostav.Where(n => n.bludo == cod).Count();
+        }
 
-        public int kolnull(int codp)
-        { return sostav.Where(n => n.bludo == codp && n.ves == null).Count(); }
+        public int kolnull(int cod)
+        { return sostav.Where(n => n.bludo == cod).Count(); }
 
-        public double? vol(int codp)
-        { return sostav.Where(n => n.bludo == codp).Sum(n => n.ves); } 
+        public double? vol(int cod)
+        { return sostav.Where(n => n.bludo == cod).Sum(n => n.ves); } 
 
         public double? objem_post(int postavshik)
         { return postavki.Where(p => p.postavshik == postavshik).Sum(p => p.objem); }
