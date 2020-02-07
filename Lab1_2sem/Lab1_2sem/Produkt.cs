@@ -32,12 +32,23 @@ namespace Lab1_2sem
         { return sostav.Where(n => n.bludo == cod).Sum(n => n.ves); } 
 
         public double? objem_post(int postavshik)
-        { return postavki.Where(p => p.postavshik == postavshik).Sum(p => p.objem); }
+        {
+            var post = postavki.Where(p => p.postavshik == postavshik);
+            return post.Any() ? post.Sum(p => p.objem) : null;
+        }
 
-        public double? objem_post(DateTime from, DateTime to)
-        { return postavki.Where(p => p.date >= from && p.date <= to).Sum(p => p.objem); }
+        public double? objem_post(int postavshik, DateTime from, DateTime to)
+        {
+            var post = postavki.Where(p => p.postavshik == postavshik &&
+                    p.date >= from && p.date <= to);
+            return post.Any() ? post.Sum(p => p.objem) : null;
+        }
 
-        public double? max_post(DateTime from, DateTime to)
-        { return postavki.Where(p => p.date >= from && p.date <= to).Max(p => p.objem); }
+        public double? max_post(int postavshik, DateTime from, DateTime to)
+        {
+            var post = postavki.Where(p => p.postavshik == postavshik &&
+                    p.date >= from && p.date <= to);
+            return post.Any() ? post.Max(p => p.objem) : null;
+        }
     }
 }
