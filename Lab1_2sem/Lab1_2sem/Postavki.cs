@@ -11,5 +11,6 @@ namespace Lab1_2sem
         public int postavshik;
         public double? objem;
         public DateTime? date;
+        public double? stoim;
     }
 }
