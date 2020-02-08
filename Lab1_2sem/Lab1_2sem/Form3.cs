@@ -41,6 +41,7 @@ namespace Lab1_2sem
         {
             string dd = "";
             double? v;
+            IEnumerable<double?> vs;
             for (int i = 0; i < Form1.postavshiks.Count; i++)
             {
                 dataGridView1.Rows[i].Cells[0].Value = Form1.postavshiks[i].gorod;
@@ -61,27 +62,25 @@ namespace Lab1_2sem
                         dateTimePicker1.Value, dateTimePicker2.Value);
                     dd += v.HasValue ? "Максимум=" + v.Value : "";
 
-                    dataGridView1.Rows[i].Cells[j + 2].Value = dd;
-                        
+                    dataGridView1.Rows[i].Cells[j + 2].Value = dd;   
                 }
-                //int kolp = 0; double sp = 0; // Итоги в строке
-                //    kolnull = Form1.produkts[i].kolnull(int.Parse(dataGridView1.Columns[j].Name));
-                //    kol = Form1.produkts[i].kol(int.Parse(dataGridView1.Columns[j].Name));
-                //    // методы: кол-во поставок и объем 
-                //    v = Form1.produkts[i].vol(int.Parse(dataGridView1.Columns[j].Name));
-                //    if (kol > 0)
-                //    {
-                //        if (v.HasValue)
-                //        {
-                //            sst[j] += v.Value; sp += v.Value;
-                //        }
-                //        kol_it[j] += kol; kolp += kol;
-                //        dd = "Поставлено(кг)=" + v.ToString() + "\n количество поставок \n без объема=" + kol.ToString();
-                //    }
-                //    else
-                //        dd = ""; // kol=0
-                //    dataGridView1.Rows[i].Cells[j].Value = dd;
 
+                dd = "";
+                vs = Form1.produkts.Select(p => p.objem_post(Form1.postavshiks[i].cod));
+                dd += vs.Any(elem => elem.HasValue) ? "Всего=" + vs.Sum().Value : "";
+                dd += "\n";
+
+                vs = Form1.produkts.Select(p => p.objem_post(Form1.postavshiks[i].cod,
+                        dateTimePicker1.Value, dateTimePicker2.Value));
+                dd += vs.Any(elem => elem.HasValue) ? "За период=" + vs.Sum().Value : "";
+                dd += "\n";
+
+                vs = Form1.produkts.Select(p => p.max_post(Form1.postavshiks[i].cod,
+                        dateTimePicker1.Value, dateTimePicker2.Value));
+                dd += vs.Any(elem => elem.HasValue) ? "Максимум=" + vs.Sum().Value : "";
+                dd += "\n";
+
+                dataGridView1.Rows[i].Cells[dataGridView1.ColumnCount - 1].Value = dd;
             }
         }
 
