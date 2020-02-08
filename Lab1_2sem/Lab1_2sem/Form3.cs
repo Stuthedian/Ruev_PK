@@ -74,8 +74,16 @@ namespace Lab1_2sem
                         itog_po_produktam[j, 2] = v;
                     else if (v.HasValue)
                         itog_po_produktam[j, 2] = v > itog_po_produktam[j, 2] ? v : itog_po_produktam[j, 2];
-                    
                     dd += v.HasValue ? "Максимум=" + v.Value : "";
+                    dd += "\n";
+
+                    v = Form1.produkts[j].objem_post_null_stoim(Form1.postavshiks[i].cod);
+                    dd += v.HasValue ? "объем поставок без стоимости =" + v.Value : "";
+                    dd += "\n";
+
+                    v = Form1.produkts[j].objem_post_zero_stoim(Form1.postavshiks[i].cod);
+                    dd += v.HasValue ? "объем благотворительных поставок=" + v.Value : "";
+                    dd += "\n";
 
                     dataGridView1.Rows[i].Cells[j + 2].Value = dd;   
                 }

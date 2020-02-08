@@ -10,8 +10,7 @@ namespace Lab1_2sem
     {
         public string name;
         public double? objem;
-        public double? stoim;
-
+        
         public List<Sostav> sostav;
         public List<Postavki> postavki;
 
@@ -49,6 +48,19 @@ namespace Lab1_2sem
             var post = postavki.Where(p => p.postavshik == postavshik &&
                     p.date >= from && p.date <= to);
             return post.Any() ? post.Max(p => p.objem) : null;
+        }
+
+        public double? objem_post_null_stoim(int postavshik)
+        {
+            var post = postavki.Where(p => p.postavshik == postavshik && p.stoim == null);
+            return post.Any() ? post.Sum(p => p.objem) : null;
+        }
+
+        public double? objem_post_zero_stoim(int postavshik)
+        {
+            var post = postavki.Where(p => p.postavshik == postavshik 
+                && p.stoim.HasValue && p.stoim.Value == 0);
+            return post.Any() ? post.Sum(p => p.objem) : null;
         }
     }
 }

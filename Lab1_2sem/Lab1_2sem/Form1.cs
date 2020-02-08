@@ -83,14 +83,18 @@ namespace Lab1_2sem
                 }
                 red2.Close();
 
-                com2.CommandText = "select pc, kol, data from postavki where postavki.pr = @pr";
+                com2.CommandText = "select pc, kol, data, cena from postavki where postavki.pr = @pr";
                 com2.Parameters["@pr"].Value = red[3].ToString();
                 red2 = com2.ExecuteReader();
                 while (red2.Read())
                 {
-                    postavki.Add(new Postavki() { postavshik = Convert.ToInt32(red2[0].ToString()),
-                                                  objem = Convert.ToDouble(red2[1].ToString()),
-                                                  date = DateTime.Parse(red2[2].ToString())});
+                    postavki.Add(new Postavki()
+                    {
+                        postavshik = Convert.ToInt32(red2[0].ToString()),
+                        objem = Convert.ToDouble(red2[1].ToString()),
+                        date = DateTime.Parse(red2[2].ToString()),
+                        stoim = red2[3].ToString() == "" ? null : (double?)Convert.ToDouble(red2[3])
+                    });
                 }
                 red2.Close();
 
@@ -98,7 +102,7 @@ namespace Lab1_2sem
                 {
                     name = red[0].ToString(),
                     objem = Convert.ToDouble(red[1].ToString()),
-                    stoim = Convert.ToDouble(red[2].ToString()),
+                    //stoim = Convert.ToDouble(red[2].ToString()),
                     sostav = sostav.ToList(),
                     postavki = postavki.ToList()
                 });
@@ -109,7 +113,7 @@ namespace Lab1_2sem
                 
             red.Close();
 
-            dataGridView1.DataSource = produkts.Select(r => new { r.name, r.objem, r.stoim }).ToArray();
+            dataGridView1.DataSource = produkts.Select(r => new { r.name, r.objem/*, r.stoim*/ }).ToArray();
             
         }
 
