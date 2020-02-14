@@ -1,0 +1,11 @@
+D:\410\Ruev_PK-master\Lab1_2sem\Lab1_2sem\bin\Debug\Lab1_2sem.exe.config
+D:\410\Ruev_PK-master\Lab1_2sem\Lab1_2sem\bin\Debug\Lab1_2sem.exe
+D:\410\Ruev_PK-master\Lab1_2sem\Lab1_2sem\bin\Debug\Lab1_2sem.pdb
+D:\410\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.csprojResolveAssemblyReference.cache
+D:\410\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.Form3.resources
+D:\410\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.Form2.resources
+D:\410\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.Form1.resources
+D:\410\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.Properties.Resources.resources
+D:\410\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.csproj.GenerateResource.Cache
+D:\410\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.exe
+D:\410\Ruev_PK-master\Lab1_2sem\Lab1_2sem\obj\Debug\Lab1_2sem.pdb

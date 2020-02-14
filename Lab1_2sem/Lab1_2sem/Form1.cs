@@ -55,7 +55,7 @@ namespace Lab1_2sem
                 {
                     cod = Convert.ToInt32(red[0].ToString()),
                     name = red[1].ToString(),
-                    trud = Convert.ToInt32(red[5].ToString())
+                    trud = red[5].ToString() == "" ? null : (int?)Convert.ToInt32(red[5].ToString())
                 });
             red.Close();
 
@@ -79,7 +79,9 @@ namespace Lab1_2sem
                 SqlDataReader red2 = com2.ExecuteReader();
                 while(red2.Read())
                 {
-                    sostav.Add(new Sostav() { bludo = Convert.ToInt32(red2[0].ToString()), ves = Convert.ToInt32(red2[1].ToString()) });
+                    sostav.Add(new Sostav() { bludo = Convert.ToInt32(red2[0].ToString()),
+                                              ves = red2[1].ToString() == "" ? null : (double?)Convert.ToDouble(red2[1].ToString())
+                    });
                 }
                 red2.Close();
 
@@ -91,8 +93,8 @@ namespace Lab1_2sem
                     postavki.Add(new Postavki()
                     {
                         postavshik = Convert.ToInt32(red2[0].ToString()),
-                        objem = Convert.ToDouble(red2[1].ToString()),
                         date = DateTime.Parse(red2[2].ToString()),
+                        objem = red2[1].ToString() == "" ? null : (double?)Convert.ToDouble(red2[1]),
                         stoim = red2[3].ToString() == "" ? null : (double?)Convert.ToDouble(red2[3])
                     });
                 }
@@ -101,7 +103,7 @@ namespace Lab1_2sem
                 produkts.Add(new Produkt()
                 {
                     name = red[0].ToString(),
-                    objem = Convert.ToDouble(red[1].ToString()),
+                    objem = red[1].ToString() == "" ? null : (double?)Convert.ToDouble(red[1].ToString()),
                     //stoim = Convert.ToDouble(red[2].ToString()),
                     sostav = sostav.ToList(),
                     postavki = postavki.ToList()
@@ -124,7 +126,7 @@ namespace Lab1_2sem
                 dataGridView2.DataSource = produkts[dataGridView1.SelectedRows[0].Index].sostav.Join(bludos, s => s.bludo, b => b.cod,
                     (s, b) => new { b.name, s.ves }).ToArray();
                 dataGridView3.DataSource = produkts[dataGridView1.SelectedRows[0].Index].postavki.Join(postavshiks, p => p.postavshik, pst => pst.cod,
-                    (p, pst) => new { pst.name, pst.gorod }).ToArray();
+                    (p, pst) => new { pst.name, pst.gorod, p.objem, p.stoim }).ToArray();
             }
         }
 
