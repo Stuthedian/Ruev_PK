@@ -33,34 +33,34 @@ namespace Lab1_2sem
         public double? objem_post(int postavshik)
         {
             var post = postavki.Where(p => p.postavshik == postavshik);
-            return post.Any() ? post.Sum(p => p.objem) : null;
+            return post.Any() && post.Any(p => p.objem.HasValue) ? post.Sum(p => p.objem) : null;
         }
 
         public double? objem_post(int postavshik, DateTime from, DateTime to)
         {
             var post = postavki.Where(p => p.postavshik == postavshik &&
                     p.date >= from && p.date <= to);
-            return post.Any() ? post.Sum(p => p.objem) : null;
+            return post.Any() && post.Any(p => p.objem.HasValue) ? post.Sum(p => p.objem) : null;
         }
 
         public double? max_post(int postavshik, DateTime from, DateTime to)
         {
             var post = postavki.Where(p => p.postavshik == postavshik &&
                     p.date >= from && p.date <= to);
-            return post.Any() ? post.Max(p => p.objem) : null;
+            return post.Any() && post.Any(p => p.objem.HasValue) ? post.Max(p => p.objem) : null;
         }
 
         public double? objem_post_null_stoim(int postavshik)
         {
             var post = postavki.Where(p => p.postavshik == postavshik && p.stoim == null);
-            return post.Any() ? post.Sum(p => p.objem) : null;
+            return post.Any() && post.Any(p => p.objem.HasValue) ? post.Sum(p => p.objem) : null;
         }
 
         public double? objem_post_zero_stoim(int postavshik)
         {
             var post = postavki.Where(p => p.postavshik == postavshik 
                 && p.stoim.HasValue && p.stoim.Value == 0);
-            return post.Any() ? post.Sum(p => p.objem) : null;
+            return post.Any() && post.Any(p => p.objem.HasValue) ? post.Sum(p => p.objem) : null;
         }
     }
 }
