@@ -14,6 +14,10 @@ namespace Lab1_2sem
         public List<Sostav> sostav;
         public List<Postavki> postavki;
 
+        public double? price()
+        {
+            return postavki.Select(n => n.stoim).Sum() / postavki.Count();
+        }
         public int kol(int cod)
         {
             double aa;
