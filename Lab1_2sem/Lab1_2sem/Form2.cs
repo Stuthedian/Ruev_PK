@@ -71,7 +71,7 @@ namespace Lab1_2sem
                 {
                     st += Form1.bludos[i].trud;
                     dd = "Вес в блюдах =" + sp.ToString() + "\n порций=" + kolp.ToString();
-                    ss = "Цена блюда = " + Math.Round(st.Value, 2).ToString();
+                    ss = "Цена блюда = " + Math.Round(st.HasValue ? st.Value : 0 , 2).ToString();
                 }
                 else
                 {
