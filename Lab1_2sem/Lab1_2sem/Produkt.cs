@@ -10,14 +10,19 @@ namespace Lab1_2sem
     {
         public string name;
         public double? objem;
+        public double? stoim;
         
         public List<Sostav> sostav;
         public List<Postavki> postavki;
 
-        public double? price()
+        public double? price(int bl)
         {
-            return postavki.Select(n => n.stoim).Sum() / postavki.Count();
-        }
+            int f = sostav.Where(m => m.bludo == bl).Count();
+            if (f > 0 && stoim.HasValue)
+                return stoim.Value / 1000 * sostav.Where(m => m.bludo == bl).Select(n => n.ves).Single();
+            else
+                return null;
+        } 
         public int kol(int cod)
         {
             double aa;
@@ -32,7 +37,10 @@ namespace Lab1_2sem
         { return sostav.Where(n => n.bludo == cod).Count(); }
 
         public double? vol(int cod)
-        { return sostav.Where(n => n.bludo == cod).Sum(n => n.ves); } 
+        { 
+            
+            return sostav.Where(n => n.bludo == cod).Sum(n => n.ves); 
+        } 
 
         public double? objem_post(int postavshik)
         {
