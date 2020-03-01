@@ -39,5 +39,20 @@ namespace Lab2_2sem
             new DataSet1TableAdapters.PostavshikTableAdapter().Fill(dataSet.Postavshik);
             new DataSet1TableAdapters.PostavkaTableAdapter().Fill(dataSet.Postavka);
         }
+
+        private void продуктыToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new ProduktView(dataSet, false).ShowDialog();
+        }
+
+        private void поставщикиToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void поставкиToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
