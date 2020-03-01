@@ -23,27 +23,29 @@ namespace Lab1_2sem
         private void Form1_Load(object sender, EventArgs e)
         {
             dataGridView1.Columns.Add(" ", " ");
-            string dd;
+            string dd, ss;
             int kol_col = Form1.produkts.Count;
             foreach (Produkt p in Form1.produkts)
             {
                 dataGridView1.Columns.Add(p.name, p.name);
             }
             dataGridView1.Columns.Add("", "Итого");
+            dataGridView1.Columns.Add("", "Стоимость блюда");
             double[] sst = new double[kol_col + 1];
             int[] kol_it = new int[kol_col + 1];
             dataGridView1.Rows.Add(Form1.bludos.Count + 1);
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
-            int kol, kolnull; double? v; //Данные для ячеек
+            int kol, kolnull; double? v, price; //Данные для ячеек
             for (int i = 0; i < Form1.bludos.Count; i++)
             {
                 dataGridView1.Rows[i].Cells[0].Value = Form1.bludos[i].name;
-                int kolp = 100000000; double sp = 0; // Итоги в строке
+                int kolp = 100000000; double sp = 0; double? st = 0; // Итоги в строке
                 for (int j = 1; j < kol_col+1; j++)
                 {
                     kolnull = Form1.produkts[j-1].kolnull(Form1.bludos[i].cod);
                     v = Form1.produkts[j - 1].vol(Form1.bludos[i].cod);
+                    price = Form1.produkts[j - 1].price(Form1.bludos[i].cod);
                     if (v > 0){
                         kol = Form1.produkts[j - 1].kol(Form1.bludos[i].cod);
                         //if (kolp == 100000000)
@@ -55,10 +57,12 @@ namespace Lab1_2sem
                     if (kol > 0)
                     {
                         //if (v.HasValue)
-                        {
-                            sst[j] += v.Value; 
-                            sp += v.Value;
-                        }
+                       
+                        sst[j] += v.Value; 
+                        sp += v.Value;
+                        if (price.HasValue)
+                            st += price.Value;
+
                         kol_it[j]++;
                         //if(kol < kolp)
                           //  kolp += kol;
@@ -71,14 +75,22 @@ namespace Lab1_2sem
                     }
                     dataGridView1.Rows[i].Cells[j].Value = dd;
                 }
-                if (kolp > 0)
+                if (kolp > 0){
+                    if (st > 0)
+                        st += Form1.bludos[i].trud;
+                    ss = "Цена блюда = " + Math.Round(st.HasValue ? st.Value : 0 , 2).ToString();
                     dd = "Вес в блюдах =" + sp.ToString() + "\n порций=" + kolp.ToString();
-                else 
+                }
+                else
+                {
                     dd = "Вес в блюдах = 0\n порций=0";
+                    ss = "Цена блюда = 0";
+                }
                 dataGridView1.Rows[i].Cells[kol_col+1].Value = dd;
+                dataGridView1.Rows[i].Cells[kol_col + 2].Value = ss;
             }
             dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[0].Value = "Итого";
-            for (int j = 1; j < dataGridView1.Columns.Count-1; j++)
+            for (int j = 1; j < dataGridView1.Columns.Count-2; j++)
             {
                 if (kol_it[j] > 0)
                     dd = "Количество блюд=" + kol_it[j].ToString();

@@ -10,10 +10,19 @@ namespace Lab1_2sem
     {
         public string name;
         public double? objem;
+        public double? stoim;
         
         public List<Sostav> sostav;
         public List<Postavki> postavki;
 
+        public double? price(int bl)
+        {
+            int f = sostav.Where(m => m.bludo == bl).Count();
+            if (f > 0 && stoim.HasValue)
+                return stoim.Value / 1000 * sostav.Where(m => m.bludo == bl).Select(n => n.ves).Single();
+            else
+                return null;
+        } 
         public int kol(int cod)
         {
             double aa;
@@ -28,39 +37,42 @@ namespace Lab1_2sem
         { return sostav.Where(n => n.bludo == cod).Count(); }
 
         public double? vol(int cod)
-        { return sostav.Where(n => n.bludo == cod).Sum(n => n.ves); } 
+        { 
+            
+            return sostav.Where(n => n.bludo == cod).Sum(n => n.ves); 
+        } 
 
         public double? objem_post(int postavshik)
         {
             var post = postavki.Where(p => p.postavshik == postavshik);
-            return post.Any() ? post.Sum(p => p.objem) : null;
+            return post.Any() && post.Any(p => p.objem.HasValue) ? post.Sum(p => p.objem) : null;
         }
 
         public double? objem_post(int postavshik, DateTime from, DateTime to)
         {
             var post = postavki.Where(p => p.postavshik == postavshik &&
                     p.date >= from && p.date <= to);
-            return post.Any() ? post.Sum(p => p.objem) : null;
+            return post.Any() && post.Any(p => p.objem.HasValue) ? post.Sum(p => p.objem) : null;
         }
 
         public double? max_post(int postavshik, DateTime from, DateTime to)
         {
             var post = postavki.Where(p => p.postavshik == postavshik &&
                     p.date >= from && p.date <= to);
-            return post.Any() ? post.Max(p => p.objem) : null;
+            return post.Any() && post.Any(p => p.objem.HasValue) ? post.Max(p => p.objem) : null;
         }
 
         public double? objem_post_null_stoim(int postavshik)
         {
             var post = postavki.Where(p => p.postavshik == postavshik && p.stoim == null);
-            return post.Any() ? post.Sum(p => p.objem) : null;
+            return post.Any() && post.Any(p => p.objem.HasValue) ? post.Sum(p => p.objem) : null;
         }
 
         public double? objem_post_zero_stoim(int postavshik)
         {
             var post = postavki.Where(p => p.postavshik == postavshik 
                 && p.stoim.HasValue && p.stoim.Value == 0);
-            return post.Any() ? post.Sum(p => p.objem) : null;
+            return post.Any() && post.Any(p => p.objem.HasValue) ? post.Sum(p => p.objem) : null;
         }
     }
 }
