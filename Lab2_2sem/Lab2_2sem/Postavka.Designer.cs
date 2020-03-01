@@ -46,6 +46,7 @@
             this.stoimDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.srokDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataproizvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postavkaBindingSource)).BeginInit();
@@ -73,6 +74,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(747, 361);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
+            this.dataGridView1.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellLeave);
             // 
             // dataSet1
             // 
@@ -168,11 +171,20 @@
             this.dataproizvDataGridViewTextBoxColumn.HeaderText = "data_proizv";
             this.dataproizvDataGridViewTextBoxColumn.Name = "dataproizvDataGridViewTextBoxColumn";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(92, 200);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(89, 20);
+            this.dateTimePicker1.TabIndex = 1;
+            // 
             // Postavka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 361);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Postavka";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -206,5 +218,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stoimDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn srokDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataproizvDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

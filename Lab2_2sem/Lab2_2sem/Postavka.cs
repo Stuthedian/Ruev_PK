@@ -31,8 +31,31 @@ namespace Lab2_2sem
             produktBindingSource.DataSource = dataSet1;
             postavkaBindingSource.DataSource = dataSet1;
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet1.Produkt". При необходимости она может быть перемещена или удалена.
-            
+            dateTimePicker1.Visible = false;
+        }
 
+        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dataGridView1.Columns[e.ColumnIndex].HeaderText.Contains("data"))
+            {
+                Rectangle rect1;
+                rect1 = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
+                dateTimePicker1.Location = new Point(dataGridView1.Location.X + rect1.Location.X,
+                        dataGridView1.Location.Y + rect1.Location.Y);
+                dateTimePicker1.Width = rect1.Width;
+                dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                dateTimePicker1.Visible = true;
+            }
+        }
+
+        private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].HeaderText.Contains("data"))
+            {
+                dateTimePicker1.Visible = false;
+                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value
+                    = dateTimePicker1.Value.ToShortDateString();
+            }
         }
     }
 }
