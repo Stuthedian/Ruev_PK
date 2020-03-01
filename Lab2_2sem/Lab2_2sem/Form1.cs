@@ -47,12 +47,12 @@ namespace Lab2_2sem
 
         private void поставщикиToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            new PostavshikView(dataSet, false).ShowDialog();
         }
 
         private void поставкиToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            new PostavkaView(dataSet, false).ShowDialog();
         }
     }
 }

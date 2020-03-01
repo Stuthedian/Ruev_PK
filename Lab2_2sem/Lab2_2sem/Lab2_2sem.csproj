@@ -57,6 +57,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="PostavkaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostavkaView.designer.cs">
+      <DependentUpon>PostavkaView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PostavshikView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostavshikView.designer.cs">
+      <DependentUpon>PostavshikView.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProduktView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +97,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostavkaView.resx">
+      <DependentUpon>PostavkaView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostavshikView.resx">
+      <DependentUpon>PostavshikView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProduktView.resx">
       <DependentUpon>ProduktView.cs</DependentUpon>

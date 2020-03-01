@@ -52,8 +52,9 @@ namespace Lab2_2sem
             if (dataGridView1.Columns[e.ColumnIndex].HeaderText.Contains("data"))
             {
                 dateTimePicker1.Visible = false;
-                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value
-                    = dateTimePicker1.Value.ToShortDateString();
+                //((DataRowView)postavkaBindingSource.Current)[dataGridView1.Columns[e.ColumnIndex].HeaderText] = 
+                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 
+                dateTimePicker1.Value.ToShortDateString();
             }
         }
     }
