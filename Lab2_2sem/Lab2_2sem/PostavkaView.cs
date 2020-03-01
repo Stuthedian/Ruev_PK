@@ -72,7 +72,10 @@ namespace Lab2_2sem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int cod = (int)MainGridView.CurrentRow.Cells["cod_pr"].Value;
+            Object[] cod = new object[3];
+            cod[0] = MainGridView.CurrentRow.Cells["cod_pr"].Value;
+            cod[1] = MainGridView.CurrentRow.Cells["cod_postsh"].Value;
+            cod[2] = MainGridView.CurrentRow.Cells["data"].Value;
             DataRow r = mainview[mainview.Find(cod)].Row;
             //if (r.RowState == DataRowState.Added && dataSet.Postavka.Select("cod_pr=" + cod).Count() != 0)
             //{
@@ -88,10 +91,14 @@ namespace Lab2_2sem
         private void MainGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             mainview.Sort = "cod_pr, cod_postsh, data";
+            Object[] cod = new object[3];
+            DataRow r;
             for (int i = 0; i < MainGridView.Rows.Count; i++)
             {
-                int cod = (int)MainGridView.Rows[i].Cells["cod_pr"].Value;
-                DataRow r = mainview[mainview.Find(cod)].Row;
+                cod[0] = MainGridView.Rows[i].Cells["cod_pr"].Value;
+                cod[1] = MainGridView.Rows[i].Cells["cod_postsh"].Value;
+                cod[2] = MainGridView.Rows[i].Cells["data"].Value;
+                r = mainview[mainview.Find(cod)].Row;
                 switch (r.RowState)
                 {
                     case DataRowState.Added:
