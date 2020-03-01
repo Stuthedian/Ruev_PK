@@ -30,7 +30,6 @@ namespace Lab2_2sem
             postavshikBindingSource.DataSource = dataSet1;
             produktBindingSource.DataSource = dataSet1;
             postavkaBindingSource.DataSource = dataSet1;
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet1.Produkt". При необходимости она может быть перемещена или удалена.
             dateTimePicker1.Visible = false;
         }
 
