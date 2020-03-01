@@ -25,12 +25,12 @@ namespace Lab2_2sem
 
         private void поставщикиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            new Postavshik().ShowDialog();
         }
 
         private void поставкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            new Postavka().ShowDialog();
         }
 
         private void Form1_Load(object sender, EventArgs e)

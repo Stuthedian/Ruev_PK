@@ -1,6 +1,6 @@
 ﻿namespace Lab2_2sem
 {
-    partial class Produkt
+    partial class Postavshik
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.codprDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.produktBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new Lab2_2sem.DataSet1();
-            this.produktTableAdapter = new Lab2_2sem.DataSet1TableAdapters.ProduktTableAdapter();
+            this.postavshikBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.postavshikTableAdapter = new Lab2_2sem.DataSet1TableAdapters.PostavshikTableAdapter();
+            this.codpostshDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gorodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.produktBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postavshikBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -45,22 +46,37 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codprDataGridViewTextBoxColumn,
-            this.nazvDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.produktBindingSource;
+            this.codpostshDataGridViewTextBoxColumn,
+            this.nazvDataGridViewTextBoxColumn,
+            this.gorodDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.postavshikBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(505, 361);
             this.dataGridView1.TabIndex = 0;
             // 
-            // codprDataGridViewTextBoxColumn
+            // dataSet1
             // 
-            this.codprDataGridViewTextBoxColumn.DataPropertyName = "cod_pr";
-            this.codprDataGridViewTextBoxColumn.HeaderText = "cod_pr";
-            this.codprDataGridViewTextBoxColumn.Name = "codprDataGridViewTextBoxColumn";
-            this.codprDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codprDataGridViewTextBoxColumn.Visible = false;
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // postavshikBindingSource
+            // 
+            this.postavshikBindingSource.DataMember = "Postavshik";
+            this.postavshikBindingSource.DataSource = this.dataSet1;
+            // 
+            // postavshikTableAdapter
+            // 
+            this.postavshikTableAdapter.ClearBeforeFill = true;
+            // 
+            // codpostshDataGridViewTextBoxColumn
+            // 
+            this.codpostshDataGridViewTextBoxColumn.DataPropertyName = "cod_postsh";
+            this.codpostshDataGridViewTextBoxColumn.HeaderText = "cod_postsh";
+            this.codpostshDataGridViewTextBoxColumn.Name = "codpostshDataGridViewTextBoxColumn";
+            this.codpostshDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codpostshDataGridViewTextBoxColumn.Visible = false;
             // 
             // nazvDataGridViewTextBoxColumn
             // 
@@ -68,33 +84,25 @@
             this.nazvDataGridViewTextBoxColumn.HeaderText = "nazv";
             this.nazvDataGridViewTextBoxColumn.Name = "nazvDataGridViewTextBoxColumn";
             // 
-            // produktBindingSource
+            // gorodDataGridViewTextBoxColumn
             // 
-            this.produktBindingSource.DataMember = "Produkt";
-            this.produktBindingSource.DataSource = this.dataSet1;
+            this.gorodDataGridViewTextBoxColumn.DataPropertyName = "gorod";
+            this.gorodDataGridViewTextBoxColumn.HeaderText = "gorod";
+            this.gorodDataGridViewTextBoxColumn.Name = "gorodDataGridViewTextBoxColumn";
             // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // produktTableAdapter
-            // 
-            this.produktTableAdapter.ClearBeforeFill = true;
-            // 
-            // Produkt
+            // Postavshik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(505, 361);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Produkt";
+            this.Name = "Postavshik";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Produkt";
             this.Load += new System.EventHandler(this.Produkt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.produktBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postavshikBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -103,9 +111,10 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private DataSet1 dataSet1;
-        private System.Windows.Forms.BindingSource produktBindingSource;
-        private DataSet1TableAdapters.ProduktTableAdapter produktTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codprDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource postavshikBindingSource;
+        private DataSet1TableAdapters.PostavshikTableAdapter postavshikTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codpostshDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazvDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gorodDataGridViewTextBoxColumn;
     }
 }
