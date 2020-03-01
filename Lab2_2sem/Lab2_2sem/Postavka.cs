@@ -42,7 +42,8 @@ namespace Lab2_2sem
                 dateTimePicker1.Location = new Point(dataGridView1.Location.X + rect1.Location.X,
                         dataGridView1.Location.Y + rect1.Location.Y);
                 dateTimePicker1.Width = rect1.Width;
-                dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                if(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != DBNull.Value)
+                    dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
                 dateTimePicker1.Visible = true;
             }
         }

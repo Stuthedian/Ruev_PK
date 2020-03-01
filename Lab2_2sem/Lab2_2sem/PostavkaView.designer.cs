@@ -49,7 +49,7 @@
             this.MainGridView.ReadOnly = true;
             this.MainGridView.RowHeadersVisible = false;
             this.MainGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MainGridView.Size = new System.Drawing.Size(317, 150);
+            this.MainGridView.Size = new System.Drawing.Size(490, 150);
             this.MainGridView.TabIndex = 0;
             // 
             // panel1
@@ -57,7 +57,7 @@
             this.panel1.Controls.Add(this.SelectedGridView);
             this.panel1.Location = new System.Drawing.Point(3, 168);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(326, 91);
+            this.panel1.Size = new System.Drawing.Size(504, 91);
             this.panel1.TabIndex = 1;
             // 
             // SelectedGridView
@@ -71,12 +71,12 @@
             this.SelectedGridView.ReadOnly = true;
             this.SelectedGridView.RowHeadersVisible = false;
             this.SelectedGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.SelectedGridView.Size = new System.Drawing.Size(317, 84);
+            this.SelectedGridView.Size = new System.Drawing.Size(490, 84);
             this.SelectedGridView.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(364, 12);
+            this.button1.Location = new System.Drawing.Point(537, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 27);
             this.button1.TabIndex = 2;
@@ -86,23 +86,23 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(335, 49);
+            this.textBox1.Location = new System.Drawing.Point(508, 49);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(156, 210);
             this.textBox1.TabIndex = 4;
             // 
-            // IspolnitelView
+            // PostavkaView
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(503, 273);
+            this.ClientSize = new System.Drawing.Size(671, 273);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.MainGridView);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Name = "IspolnitelView";
+            this.Name = "PostavkaView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IspolnitelView";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.IspolnitelView_FormClosing);
