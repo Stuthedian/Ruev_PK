@@ -27,5 +27,29 @@ namespace Lab2_2sem
             
 
         }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                DataRow temprow = dataSet1.Postavshik.Rows.Find(((DataRowView)postavshikBindingSource.Current)[0]);
+                if (dataSet1.Postavka.Select("cod_postsh='" + temprow[0].ToString() + "'").Count() != 0)
+                {
+                    MessageBox.Show("Удаление не возможно. Данная строка используется в других таблицах.");
+                    e.Handled = true;
+                    return;
+                }
+                try
+                {
+                    temprow.Delete();
+                    //brigadaTableAdapter.Update(dataSet1.Brigada);
+                    //dataSet1.Brigada.AcceptChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
 }
