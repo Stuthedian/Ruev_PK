@@ -49,6 +49,16 @@ namespace Lab2_2sem
                 }
             }
         }
-        
+
+        private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (e.FormattedValue.ToString() == "")
+                e.Cancel = true;
+        }
+
+        private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            //e.Control
+        }        
     }
 }
