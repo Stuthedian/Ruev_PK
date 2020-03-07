@@ -56,6 +56,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(505, 361);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridView1_CellValidating);
+            this.dataGridView1.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView1_EditingControlShowing);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // codpostshDataGridViewTextBoxColumn
