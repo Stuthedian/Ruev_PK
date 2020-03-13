@@ -58,5 +58,31 @@ namespace Lab2_2sem
                 dateTimePicker1.Value.ToShortDateString();
             }
         }
+
+        private void dataGridView1_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            var current_row = dataGridView1.Rows[e.RowIndex];
+            if (current_row.Cells["produkt"].Value == DBNull.Value || current_row.Cells["postavshik"].Value == DBNull.Value
+                || current_row.Cells["data"].Value == null)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells["produkt"].Value == null || current_row.Cells["produkt"].Value == null)
+                    continue;
+                if (row.Index != e.RowIndex &&
+                    row.Cells["postavshik"].Value.ToString() == current_row.Cells["postavshik"].Value.ToString() &&
+                    row.Cells["produkt"].Value.ToString() == current_row.Cells["produkt"].Value.ToString() &&
+                    row.Cells["data"].Value.ToString() == current_row.Cells["data"].Value.ToString())
+                {
+                    MessageBox.Show("В день поставщик может поставлять один и тот же товар только один раз");
+                    e.Cancel = true;
+                    break;
+                }
+            }
+        }
     }
 }

@@ -58,13 +58,7 @@ namespace Lab2_2sem
 
         private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            TextBox textBox = (TextBox)e.Control;
-            textBox.KeyPress += TextBox_KeyPress;
-        }
-
-        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !(Char.IsLetter(e.KeyChar) || e.KeyChar == '\b');
-        }
+            //e.Control
+        }        
     }
 }

@@ -30,28 +30,28 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.produktBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new Lab2_2sem.DataSet1();
+            this.postavshikBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.postavkaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.postavkaTableAdapter = new Lab2_2sem.DataSet1TableAdapters.PostavkaTableAdapter();
-            this.produktBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.produktTableAdapter = new Lab2_2sem.DataSet1TableAdapters.ProduktTableAdapter();
-            this.postavshikBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.postavshikTableAdapter = new Lab2_2sem.DataSet1TableAdapters.PostavshikTableAdapter();
-            this.Column1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.codprDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codpostshDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.produkt = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.postavshik = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cod_pr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cod_postsh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.objemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stoimDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.srokDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataproizvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postavkaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produktBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postavshikBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postavkaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -59,11 +59,11 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.codprDataGridViewTextBoxColumn,
-            this.codpostshDataGridViewTextBoxColumn,
-            this.dataDataGridViewTextBoxColumn,
+            this.produkt,
+            this.postavshik,
+            this.cod_pr,
+            this.cod_postsh,
+            this.data,
             this.objemDataGridViewTextBoxColumn,
             this.stoimDataGridViewTextBoxColumn,
             this.srokDataGridViewTextBoxColumn,
@@ -76,11 +76,22 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             this.dataGridView1.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellLeave);
+            this.dataGridView1.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_RowValidating);
+            // 
+            // produktBindingSource
+            // 
+            this.produktBindingSource.DataMember = "Produkt";
+            this.produktBindingSource.DataSource = this.dataSet1;
             // 
             // dataSet1
             // 
             this.dataSet1.DataSetName = "DataSet1";
             this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // postavshikBindingSource
+            // 
+            this.postavshikBindingSource.DataMember = "Postavshik";
+            this.postavshikBindingSource.DataSource = this.dataSet1;
             // 
             // postavkaBindingSource
             // 
@@ -91,61 +102,59 @@
             // 
             this.postavkaTableAdapter.ClearBeforeFill = true;
             // 
-            // produktBindingSource
-            // 
-            this.produktBindingSource.DataMember = "Produkt";
-            this.produktBindingSource.DataSource = this.dataSet1;
-            // 
             // produktTableAdapter
             // 
             this.produktTableAdapter.ClearBeforeFill = true;
-            // 
-            // postavshikBindingSource
-            // 
-            this.postavshikBindingSource.DataMember = "Postavshik";
-            this.postavshikBindingSource.DataSource = this.dataSet1;
             // 
             // postavshikTableAdapter
             // 
             this.postavshikTableAdapter.ClearBeforeFill = true;
             // 
-            // Column1
+            // dateTimePicker1
             // 
-            this.Column1.DataPropertyName = "cod_pr";
-            this.Column1.DataSource = this.produktBindingSource;
-            this.Column1.DisplayMember = "nazv";
-            this.Column1.HeaderText = "produkt";
-            this.Column1.Name = "Column1";
-            this.Column1.ValueMember = "cod_pr";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(92, 200);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(89, 20);
+            this.dateTimePicker1.TabIndex = 1;
             // 
-            // Column2
+            // produkt
             // 
-            this.Column2.DataPropertyName = "cod_postsh";
-            this.Column2.DataSource = this.postavshikBindingSource;
-            this.Column2.DisplayMember = "nazv";
-            this.Column2.HeaderText = "postavshik";
-            this.Column2.Name = "Column2";
-            this.Column2.ValueMember = "cod_postsh";
+            this.produkt.DataPropertyName = "cod_pr";
+            this.produkt.DataSource = this.produktBindingSource;
+            this.produkt.DisplayMember = "nazv";
+            this.produkt.HeaderText = "produkt";
+            this.produkt.Name = "produkt";
+            this.produkt.ValueMember = "cod_pr";
             // 
-            // codprDataGridViewTextBoxColumn
+            // postavshik
             // 
-            this.codprDataGridViewTextBoxColumn.DataPropertyName = "cod_pr";
-            this.codprDataGridViewTextBoxColumn.HeaderText = "cod_pr";
-            this.codprDataGridViewTextBoxColumn.Name = "codprDataGridViewTextBoxColumn";
-            this.codprDataGridViewTextBoxColumn.Visible = false;
+            this.postavshik.DataPropertyName = "cod_postsh";
+            this.postavshik.DataSource = this.postavshikBindingSource;
+            this.postavshik.DisplayMember = "nazv";
+            this.postavshik.HeaderText = "postavshik";
+            this.postavshik.Name = "postavshik";
+            this.postavshik.ValueMember = "cod_postsh";
             // 
-            // codpostshDataGridViewTextBoxColumn
+            // cod_pr
             // 
-            this.codpostshDataGridViewTextBoxColumn.DataPropertyName = "cod_postsh";
-            this.codpostshDataGridViewTextBoxColumn.HeaderText = "cod_postsh";
-            this.codpostshDataGridViewTextBoxColumn.Name = "codpostshDataGridViewTextBoxColumn";
-            this.codpostshDataGridViewTextBoxColumn.Visible = false;
+            this.cod_pr.DataPropertyName = "cod_pr";
+            this.cod_pr.HeaderText = "cod_pr";
+            this.cod_pr.Name = "cod_pr";
+            this.cod_pr.Visible = false;
             // 
-            // dataDataGridViewTextBoxColumn
+            // cod_postsh
             // 
-            this.dataDataGridViewTextBoxColumn.DataPropertyName = "data";
-            this.dataDataGridViewTextBoxColumn.HeaderText = "data";
-            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
+            this.cod_postsh.DataPropertyName = "cod_postsh";
+            this.cod_postsh.HeaderText = "cod_postsh";
+            this.cod_postsh.Name = "cod_postsh";
+            this.cod_postsh.Visible = false;
+            // 
+            // data
+            // 
+            this.data.DataPropertyName = "data";
+            this.data.HeaderText = "data";
+            this.data.Name = "data";
             // 
             // objemDataGridViewTextBoxColumn
             // 
@@ -171,14 +180,6 @@
             this.dataproizvDataGridViewTextBoxColumn.HeaderText = "data_proizv";
             this.dataproizvDataGridViewTextBoxColumn.Name = "dataproizvDataGridViewTextBoxColumn";
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(92, 200);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(89, 20);
-            this.dateTimePicker1.TabIndex = 1;
-            // 
             // Postavka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,10 +192,10 @@
             this.Text = "Produkt";
             this.Load += new System.EventHandler(this.Produkt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postavkaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produktBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postavshikBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postavkaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -209,15 +210,15 @@
         private DataSet1TableAdapters.ProduktTableAdapter produktTableAdapter;
         private System.Windows.Forms.BindingSource postavshikBindingSource;
         private DataSet1TableAdapters.PostavshikTableAdapter postavshikTableAdapter;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codprDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codpostshDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn produkt;
+        private System.Windows.Forms.DataGridViewComboBoxColumn postavshik;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cod_pr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cod_postsh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn data;
         private System.Windows.Forms.DataGridViewTextBoxColumn objemDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stoimDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn srokDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataproizvDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
