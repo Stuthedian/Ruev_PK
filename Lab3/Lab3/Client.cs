@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    class Client
+    public class Client
     {
-        int cod;
-        string fio;
-        char pol;
+        public int cod;
+        public string fio;
+        public char pol;
     }
 }

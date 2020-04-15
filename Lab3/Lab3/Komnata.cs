@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    class Komnata
+    public class Komnata
     {
         public int nomer;
         public int vmestimost;
