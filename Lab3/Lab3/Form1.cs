@@ -65,7 +65,13 @@ namespace Lab3
 
             doc = new XElement("Root", 
                 temp_root.komnatas.Select(k =>
-                new XElement("комната", new XAttribute("номер", k.nomer))),
+                new XElement("комната", new XAttribute("номер", k.nomer),
+                    new XElement("вместимость", k.vmestimost),
+                    k.zaselenies.Select(z => new XElement("заселение", 
+                        new XElement("код_кл", z.cod),
+                        new XElement("Цена", z.cena), 
+                        new XElement("дата_заселения", z.date_zas.ToShortDateString()),
+                        new XElement("дата_освобождения", z.date_osv.ToShortDateString()))))),
                 new XElement("клиенты", 
                     temp_root.clients
                     .Select(cl =>
@@ -73,19 +79,12 @@ namespace Lab3
                     new XElement("пол", cl.pol)))
                 )
                 );
-            doc.Save("../../test.xml");
+            doc.Save("../../Zaselenie.xml");
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            /*
-             Создание xml'ки!!
-             */
-             //временный объект рут
-             //заливка в него значений
-             //создание хмлки с помощью линк
-            
-            doc = XElement.Load(@"../../Zaselenie.xml");
+            doc = XElement.Load("../../Zaselenie.xml");
             root = new Root();
             root.komnatas = new List<Komnata>();
             root.clients = new List<Client>();
