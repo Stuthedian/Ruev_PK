@@ -71,6 +71,21 @@ namespace Lab3
             comboBox1.DataSource = root.komnatas.Select(n => n.nomer).ToArray();
             comboBox1.SelectedIndexChanged += ComboBox1_SelectedIndexChanged;
             ComboBox1_SelectedIndexChanged(sender, e);
+
+            comboBox2.DataSource = root.komnatas.Select(n => n.nomer).ToArray();
+            comboBox2.SelectedIndexChanged += ComboBox2_SelectedIndexChanged;
+            ComboBox2_SelectedIndexChanged(sender, e);
+        }
+
+        private void ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dataGridView4.DataSource = root.komnatas.Where(n => n.nomer.ToString() == comboBox2.SelectedItem.ToString())
+                .Select(n => new
+                {
+                    суммарная_стоимость = n.zaselenies.Sum(c => c.cena),
+                    кол_во_женщин = n.zaselenies
+                    .Where(z => root.clients.Where(cl => cl.cod == z.cod).Single().pol == 'ж').Count()
+                }).ToArray();
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
