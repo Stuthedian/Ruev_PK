@@ -20,6 +20,60 @@ namespace Lab3
         public Form1()
         {
             InitializeComponent();
+            Root temp_root = new Root()
+            {
+                komnatas = new List<Komnata>()
+                {
+                    new Komnata(){ nomer = 1, vmestimost = 2,
+                        zaselenies = new List<Zaselenie>()
+                        {
+                            new Zaselenie() { cod = 1, cena = 1300,
+                                date_zas = Convert.ToDateTime("2018.05.04"),
+                                date_osv = Convert.ToDateTime("2018.06.04") }
+                        } },
+                    new Komnata(){ nomer = 11, vmestimost = 1,
+                        zaselenies = new List<Zaselenie>()
+                        {
+                            new Zaselenie() { cod = 1, cena = 1300,
+                                date_zas = Convert.ToDateTime("2018.05.04"),
+                                date_osv = Convert.ToDateTime("2018.06.04") },
+                            new Zaselenie() { cod = 2, cena = 1300.50,
+                                date_zas = Convert.ToDateTime("2018.08.24"),
+                                date_osv = Convert.ToDateTime("2018.06.04") }
+                        } },
+                    new Komnata(){ nomer = 12, vmestimost = 3,
+                        zaselenies = new List<Zaselenie>()
+                        {
+                            new Zaselenie() { cod = 1, cena = 1300,
+                                date_zas = Convert.ToDateTime("2018.06.02"),
+                                date_osv = Convert.ToDateTime("2018.09.04") },
+                            new Zaselenie() { cod = 2, cena = 1360.50,
+                                date_zas = Convert.ToDateTime("2018.09.24"),
+                                date_osv = Convert.ToDateTime("2018.12.04") },
+                            new Zaselenie() { cod = 2, cena = 1380.80,
+                                date_zas = Convert.ToDateTime("2018.02.24"),
+                                date_osv = Convert.ToDateTime("2018.06.04") }
+                        } }
+                },
+                clients = new List<Client>()
+                {
+                    new Client(){ cod = 1, fio = "Иванов А.Н.", pol = 'м'},
+                    new Client(){ cod = 2, fio = "Иванова Н.А.", pol = 'ж'},
+                    new Client(){ cod = 3, fio = "Петров В.А.", pol = 'м'}
+                }
+            };
+
+            doc = new XElement("Root", 
+                temp_root.komnatas.Select(k =>
+                new XElement("комната", new XAttribute("номер", k.nomer))),
+                new XElement("клиенты", 
+                    temp_root.clients
+                    .Select(cl =>
+                new XElement("клиент", new XElement("код_кл", cl.cod), new XElement("фио", cl.fio),
+                    new XElement("пол", cl.pol)))
+                )
+                );
+            doc.Save("../../test.xml");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -27,6 +81,10 @@ namespace Lab3
             /*
              Создание xml'ки!!
              */
+             //временный объект рут
+             //заливка в него значений
+             //создание хмлки с помощью линк
+            
             doc = XElement.Load(@"../../Zaselenie.xml");
             root = new Root();
             root.komnatas = new List<Komnata>();
