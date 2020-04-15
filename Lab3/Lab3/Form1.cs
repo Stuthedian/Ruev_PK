@@ -75,6 +75,28 @@ namespace Lab3
             comboBox2.DataSource = root.komnatas.Select(n => n.nomer).ToArray();
             comboBox2.SelectedIndexChanged += ComboBox2_SelectedIndexChanged;
             ComboBox2_SelectedIndexChanged(sender, e);
+
+            comboBox3.DataSource = root.clients.Select(n => n.fio).ToArray();
+            comboBox3.SelectedIndexChanged += ComboBox3_SelectedIndexChanged;
+            ComboBox3_SelectedIndexChanged(sender, e);
+        }
+
+        private void ComboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dataGridView5.DataSource = new int[]{ 1 }.Select(s => new
+            {
+                кол_во_заселений = root.komnatas
+                .Select(k =>
+                    k.zaselenies.Where(z => z.cod == root.clients
+                    .Where(cl => cl.fio == comboBox3.SelectedItem.ToString()).Single().cod).Count()
+                ).Sum(),
+                кол_во_заселений_разные_комнаты = root.komnatas
+                .Select(k =>
+                    k.zaselenies.Where(z => z.cod == root.clients
+                    .Where(cl => cl.fio == comboBox3.SelectedItem.ToString()).Single().cod).Count()
+                ).Sum(n => n > 1 ? 1 : n)
+            }).ToArray();
+                
         }
 
         private void ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
