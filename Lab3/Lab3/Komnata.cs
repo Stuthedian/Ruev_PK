@@ -8,8 +8,8 @@ namespace Lab3
 {
     class Komnata
     {
-        int nomer;
-        int vmestimost;
-        List<Zaselenie> zaselenies;
+        public int nomer;
+        public int vmestimost;
+        public List<Zaselenie> zaselenies;
     }
 }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    class Zaselenie
+    public class Zaselenie
     {
-        int cod;
-        DateTime date_zas;
-        DateTime date_osv;
-        double cena;
+        public int cod;
+        public DateTime date_zas;
+        public DateTime date_osv;
+        public double cena;
     }
 }

@@ -8,7 +8,7 @@ namespace Lab3
 {
     class Root
     {
-        List<Komnata> komnatas;
-        List<Client> clients;
+        public List<Komnata> komnatas;
+        public List<Client> clients;
     }
 }
