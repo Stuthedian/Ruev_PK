@@ -190,5 +190,15 @@ namespace Lab3
                     дата_освобождения = elem.date_osv
                 }).ToArray();
         }
+
+        private void сгенерироватьНовыйXmlToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void загрузитьСуществующийToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
