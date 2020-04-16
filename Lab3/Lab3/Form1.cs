@@ -219,6 +219,8 @@ namespace Lab3
                 comboBox1.SelectedIndexChanged -= ComboBox1_SelectedIndexChanged;
                 comboBox2.SelectedIndexChanged -= ComboBox2_SelectedIndexChanged;
                 comboBox3.SelectedIndexChanged -= ComboBox3_SelectedIndexChanged;
+
+                load_xml(fileDialog.FileName);
             }
         }
     }
