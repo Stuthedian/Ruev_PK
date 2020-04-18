@@ -63,7 +63,7 @@ namespace Lab2_2sem
         {
             var current_row = dataGridView1.Rows[e.RowIndex];
             if (current_row.Cells["produkt"].Value == DBNull.Value || current_row.Cells["postavshik"].Value == DBNull.Value
-                || current_row.Cells["data"].Value == null)
+                || current_row.Cells["data"].Value == DBNull.Value)
             {
                 e.Cancel = true;
                 return;
