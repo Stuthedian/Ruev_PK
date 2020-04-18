@@ -45,6 +45,23 @@ namespace Lab2_2sem
                 if(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != DBNull.Value)
                     dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
                 dateTimePicker1.Visible = true;
+                if(dataGridView1.Columns[e.ColumnIndex].HeaderText.Contains("proizv"))
+                {
+                    dataGridView1.KeyPress += DataGridView1_KeyPress;
+                }
+            }
+        }
+
+        private void DataGridView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 27)
+            {
+                dataGridView1.KeyPress -= DataGridView1_KeyPress;
+                DataGridViewCellEventArgs dataGrid =
+                    new DataGridViewCellEventArgs(dataGridView1.CurrentCell.ColumnIndex,
+                    dataGridView1.CurrentCell.RowIndex);
+                dataGridView1_CellLeave(sender, dataGrid);
+                dataGridView1.CurrentCell.Value = DBNull.Value;
             }
         }
 
@@ -52,6 +69,8 @@ namespace Lab2_2sem
         {
             if (dataGridView1.Columns[e.ColumnIndex].HeaderText.Contains("data"))
             {
+                if (dateTimePicker1.Visible == false)
+                    return;
                 dateTimePicker1.Visible = false;
                 //((DataRowView)postavkaBindingSource.Current)[dataGridView1.Columns[e.ColumnIndex].HeaderText] = 
                 dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 
