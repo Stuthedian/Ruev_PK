@@ -48,12 +48,22 @@ namespace Lab2_2sem
                     MessageBox.Show(ex.Message);
                 }
             }
+            Form1.edited.Value = true;
         }
 
         private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            if (e.FormattedValue.ToString() == "")
+            if (e.FormattedValue.ToString() == "" )
+            {
+                MessageBox.Show("Названия обязательны!");
                 e.Cancel = true;
+            }
+            if (e.FormattedValue.ToString().Any(c => char.IsDigit(c)))
+            {
+                MessageBox.Show("Только буковы!");
+                e.Cancel = true;
+            }
+            Form1.edited.Value = true;
         }
 
         private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)

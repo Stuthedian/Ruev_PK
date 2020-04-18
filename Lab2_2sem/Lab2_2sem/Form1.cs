@@ -32,12 +32,18 @@ namespace Lab2_2sem
         {
             new Postavka().ShowDialog();
         }
-
+        DataSet1TableAdapters.ProduktTableAdapter ProduktTableAdapter = new DataSet1TableAdapters.ProduktTableAdapter();
+        DataSet1TableAdapters.PostavshikTableAdapter PostavshikTableAdapter= new DataSet1TableAdapters.PostavshikTableAdapter();
+        DataSet1TableAdapters.PostavkaTableAdapter PostavkaTableAdapter = new DataSet1TableAdapters.PostavkaTableAdapter();
         private void Form1_Load(object sender, EventArgs e)
         {
-            new DataSet1TableAdapters.ProduktTableAdapter().Fill(dataSet.Produkt);
-            new DataSet1TableAdapters.PostavshikTableAdapter().Fill(dataSet.Postavshik);
-            new DataSet1TableAdapters.PostavkaTableAdapter().Fill(dataSet.Postavka);
+            ProduktTableAdapter.Fill(dataSet.Produkt);
+            PostavshikTableAdapter.Fill(dataSet.Postavshik);
+            PostavkaTableAdapter.Fill(dataSet.Postavka);
+            //new DataSet1TableAdapters.ProduktTableAdapter().Fill(dataSet.Produkt);
+            //new DataSet1TableAdapters.PostavshikTableAdapter().Fill(dataSet.Postavshik);
+            //new DataSet1TableAdapters.PostavkaTableAdapter().Fill(dataSet.Postavka);
+            edited.Value = false;
         }
 
         private void продуктыToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -53,6 +59,43 @@ namespace Lab2_2sem
         private void поставкиToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new PostavkaView(dataSet, false).ShowDialog();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (edited.Value)
+            {
+                if (DialogResult.Yes == MessageBox.Show("Сохранить изменения в БД?", "Внимание", MessageBoxButtons.YesNo))
+                {
+                    try
+                    {
+                        ProduktTableAdapter.Adapter.ContinueUpdateOnError = true;
+                        PostavshikTableAdapter.Adapter.ContinueUpdateOnError = true;
+                        PostavkaTableAdapter.Adapter.ContinueUpdateOnError = true;
+                        ProduktTableAdapter.Update(dataSet.Produkt);
+                        PostavshikTableAdapter.Update(dataSet.Postavshik);
+                        PostavkaTableAdapter.Update(dataSet.Postavka);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else
+                {
+                    dataSet.RejectChanges();
+                    edited.Value = false;
+                }
+                if (DialogResult.No == MessageBox.Show("Выйти?", "Выход", MessageBoxButtons.YesNo))
+                {
+                    e.Cancel = true;
+                    edited.Value = false;
+                }
+            }
+        }
+        public static class edited
+        {
+            public static bool Value { get; set; }
         }
     }
 }

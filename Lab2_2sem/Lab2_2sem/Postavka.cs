@@ -68,6 +68,47 @@ namespace Lab2_2sem
                 e.Cancel = true;
                 return;
             }
+            if (current_row.Cells[5].Value != DBNull.Value)
+            {
+                if (Convert.ToInt32(current_row.Cells[5].Value) < 1)
+                {
+                    MessageBox.Show("Запрет на отрицательный объем!");
+                    e.Cancel = true;
+                    return;
+                }
+            }
+            if (current_row.Cells[6].Value != DBNull.Value)
+            {
+                if (Convert.ToInt32(current_row.Cells[6].Value) < 1)
+                {
+                    MessageBox.Show("Запрет на отрицательный стоимость!");
+                    e.Cancel = true;
+                    return;
+                }
+            }
+            if (current_row.Cells[7].Value != DBNull.Value)
+            {
+                if (Convert.ToInt32(current_row.Cells[7].Value) < 1)
+                {
+                    MessageBox.Show("Запрет на отрицательный срок!");
+                    e.Cancel = true;
+                    return;
+                }
+            }
+            if (current_row.Cells[8].Value != DBNull.Value)
+            {
+                if (current_row.Cells[4].Value != DBNull.Value)
+                {
+                    if (Convert.ToDateTime(current_row.Cells[8].Value) < Convert.ToDateTime(current_row.Cells[4].Value))
+                    {
+                        MessageBox.Show("Дата поствки не меньше даты производства!");
+                        e.Cancel = true;
+                        return;
+                    }
+                }
+                    
+            }
+
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -83,6 +124,7 @@ namespace Lab2_2sem
                     break;
                 }
             }
+            Form1.edited.Value = true;
         }
     }
 }
